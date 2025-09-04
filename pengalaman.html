@@ -196,14 +196,9 @@ nav {
     }
 
 /* Tombol hamburger */
-    .menu-toggle {
-      display: none;
-      font-size: 28px;
-      cursor: pointer;
-      color: white;
-      position: absolute;
-      left: 20px;
-    }
+.menu-toggle {
+  display: none;
+}
 
  /* Tablet */
     @media (max-width: 992px) {
@@ -218,7 +213,17 @@ nav {
     }
 
     /* HP */
-    @media (max-width: 576px) {
+    @media (max-width: 576px)  {
+  .menu-toggle {
+    display: block;
+    font-size: 28px;
+    cursor: pointer;
+    color: white;
+    position: absolute;
+    left: 20px;
+  }
+}
+    {
       nav {
         justify-content: flex-end;
       }
@@ -357,6 +362,7 @@ particlesJS("particles-js", {
 
 </body>
 </html>
+
 
 
 
