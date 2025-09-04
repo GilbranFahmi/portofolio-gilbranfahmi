@@ -231,6 +231,7 @@ nav {
         display: block;
       }
       nav ul {
+          display: none !important;   /* PAKSA hide */
         flex-direction: column;
         gap: 15px;
         background: rgba(20, 20, 20, 0.95);
@@ -242,7 +243,7 @@ nav {
         padding: 20px 0;
       }
       nav ul.show {
-        display: flex;
+         display: flex !important;
       }
       .photo { width: 150px; height: 150px; }
       .name { font-size: 1.5rem; }
@@ -362,6 +363,7 @@ particlesJS("particles-js", {
 
 </body>
 </html>
+
 
 
 
