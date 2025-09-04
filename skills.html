@@ -282,43 +282,67 @@
   </section>
 
 <script>
-    const menuToggle = document.querySelector(".menu-toggle");
-  const navMenu = document.querySelector("nav ul");
-
-  menuToggle.addEventListener("click", () => {
-    navMenu.classList.toggle("show");
-  });
-  
-  document.addEventListener("DOMContentLoaded", () => {
-    const progresses = document.querySelectorAll(".progress");
-
-    progresses.forEach(bar => {
-      const value = parseInt(bar.getAttribute("data-value")); // target value
-      let width = 0; // mulai dari 0
-      let percentText = bar.querySelector(".percent");
-
-      const animate = setInterval(() => {
-        if (width >= value) {
-          clearInterval(animate);
-        } else {
-          width++;
-          bar.style.width = width + "%";
-          percentText.textContent = width + "%";
-        }
-      }, 15); // semakin kecil angka → semakin cepat animasinya
-    });
-  });
-
-  // Toggle navbar
+document.addEventListener("DOMContentLoaded", () => {
+  // HAMBURGER NAVBAR
   const menuToggle = document.querySelector(".menu-toggle");
   const navMenu = document.querySelector("nav ul");
 
   menuToggle.addEventListener("click", () => {
     navMenu.classList.toggle("show");
   });
+
+  // PROGRESS BAR ANIMATION
+  const progresses = document.querySelectorAll(".progress");
+
+  progresses.forEach(bar => {
+    const value = parseInt(bar.getAttribute("data-value"));
+    let width = 0;
+    const percentText = bar.querySelector(".percent");
+
+    const animate = setInterval(() => {
+      if (width >= value) {
+        clearInterval(animate);
+      } else {
+        width++;
+        bar.style.width = width + "%";
+        percentText.textContent = width + "%";
+      }
+    }, 20); <script>
+document.addEventListener("DOMContentLoaded", () => {
+  // HAMBURGER NAVBAR
+  const menuToggle = document.querySelector(".menu-toggle");
+  const navMenu = document.querySelector("nav ul");
+
+  menuToggle.addEventListener("click", () => {
+    navMenu.classList.toggle("show");
+  });
+
+  // PROGRESS BAR ANIMATION
+  const progresses = document.querySelectorAll(".progress");
+
+  progresses.forEach(bar => {
+    const value = parseInt(bar.getAttribute("data-value"));
+    let width = 0;
+    const percentText = bar.querySelector(".percent");
+
+    const animate = setInterval(() => {
+      if (width >= value) {
+        clearInterval(animate);
+      } else {
+        width++;
+        bar.style.width = width + "%";
+        percentText.textContent = width + "%";
+      }
+    }, 20);
+  });
+});
+</script>
+
+});
 </script>
 
   
 </body>
 </html>
+
 
