@@ -28,19 +28,20 @@
     }
 
     /* Navbar */
-    nav {
-      position: fixed;
-      top: 0;
-      left: 0;
-      width: 100%;
-      background: rgba(20, 20, 20, 0.85);
-      backdrop-filter: blur(6px);
-      padding: 15px 20px;
-      z-index: 1000;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-    }
+       nav {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  background: rgba(20, 20, 20, 0.85);
+  backdrop-filter: blur(6px);
+  padding: 15px 0px;
+  z-index: 1000;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
     nav ul {
       display: flex;
       gap: 20px;
@@ -62,6 +63,79 @@
       border-color: #ff4d4d;
       box-shadow: 0 0 10px rgba(255, 77, 77, 0.6);
     }
+
+/* Tombol hamburger */
+.menu-toggle {
+  display: none;
+}
+
+ /* Tablet */
+@media (max-width: 992px) {
+  .menu-toggle {
+    display: block;
+    font-size: 28px;
+    cursor: pointer;
+    color: white;
+    position: absolute;
+    left: 20px;
+    z-index: 2000;
+  }
+
+  nav {
+    justify-content: flex-end;
+  }
+  nav ul {
+    display: none;   /* sembunyikan default */
+    flex-direction: column;
+    gap: 15px;
+    background: rgba(20, 20, 20, 0.95);
+    position: absolute;
+    top: 60px;
+    left: 0;
+    width: 100%;
+    padding: 20px 0;
+  }
+  nav ul.show {
+    display: flex !important;
+  }
+
+  .photo { width: 150px; height: 150px; }
+  .name { font-size: 1.5rem; }
+  .desc { font-size: 1rem; line-height: 1.5; } }
+
+     /* HP */
+@media (max-width: 576px) {
+  .menu-toggle {
+    display: block !important;
+    font-size: 28px;
+    cursor: pointer;
+    color: white;
+    position: absolute;
+    left: 20px;
+     z-index: 2000;
+  }
+
+  nav {
+    justify-content: flex-end;
+  }
+  nav ul {
+    display: none;   /* sembunyikan default */
+    flex-direction: column;
+    gap: 15px;
+    background: rgba(20, 20, 20, 0.95);
+    position: absolute;
+    top: 60px;
+    left: 0;
+    width: 100%;
+    padding: 20px 0;
+  }
+  nav ul.show {
+    display: flex !important;
+  }
+
+  .photo { width: 150px; height: 150px; }
+  .name { font-size: 1.5rem; }
+  .desc { font-size: 1rem; line-height: 1.5; } }
 
     /* Kontak Section */
     .contact-section {
@@ -162,17 +236,17 @@
 </head>
 <body>
 
-
-  <!-- Navbar -->
-  <nav>
-    <ul>
-      <li><a href="index.html">Tentang Saya</a></li>
-      <li><a href="skills.html">Skills</a></li>
-      <li><a href="pengalaman.html">Pengalaman</a></li>
-      <li><a href="kontak.html" style="color:#ff4d4d;">Kontak</a></li>
-    </ul>
-  </nav>
-
+ <!-- Navbar -->
+ <nav>
+  <div class="menu-toggle">&#9776;</div>
+  <ul>
+    <li><a href="index.html">Tentang Saya</a></li>
+    <li><a href="skills.html">Skills</a></li>
+    <li><a href="pengalaman.html">Pengalaman</a></li>
+    <li><a href="kontak.html">Kontak</a></li>
+  </ul>
+</nav>
+  
   <!-- Kontak Section -->
   <section class="contact-section">
     <h1 class="title">Hubungi Saya</h1>
@@ -202,6 +276,12 @@
   <!-- Particles.js -->
   <script src="https://cdn.jsdelivr.net/npm/particles.js"></script>
   <script>
+     const menuToggle = document.querySelector(".menu-toggle");
+  const navMenu = document.querySelector("nav ul");
+
+  menuToggle.addEventListener("click", () => {
+    navMenu.classList.toggle("show");
+  });
     particlesJS("particles-js", {
       particles: {
         number: { value: 80 },
@@ -212,3 +292,4 @@
   </script>
 </body>
 </html>
+
