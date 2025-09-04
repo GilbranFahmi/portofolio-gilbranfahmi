@@ -203,23 +203,36 @@ nav ul li a:hover {
 .menu-toggle {
   display: none;
   font-size: 28px;
-  color: white;
   cursor: pointer;
+  color: white;
+  position: absolute;
+  left: 20px;
 }
 
     
     /* Responsive */
-    @media (max-width: 768px) {
+    @media (max-width: 768px){
+  nav {
+    justify-content: flex-end;
+  }
+  .menu-toggle {
+    display: block;
+  }
   nav ul {
-    display: none;
     flex-direction: column;
+    gap: 15px;
     background: rgba(20, 20, 20, 0.95);
     position: absolute;
     top: 60px;
-    right: 20px;
-    padding: 20px;
-    border-radius: 10px;
-  }{
+    left: 0;
+    width: 100%;
+    display: none;
+    padding: 20px 0;
+  }
+  nav ul.show {
+    display: flex;
+  }
+} {
       .timeline::after {
         left: 20px;
       }
@@ -234,14 +247,6 @@ nav ul li a:hover {
       .timeline-item::after {
         left: 15px;
       }
-    }
-     nav ul.show {
-    display: flex;
-  }
-
-  .menu-toggle {
-    display: block;
-  }
 }
     #particles-js {
   position: fixed;
@@ -257,17 +262,17 @@ nav ul li a:hover {
 </head>
 <body>
     <div id="particles-js"></div>
-  <!-- Navbar -->
+ <!-- Navbar -->
 <nav>
-  <div class="logo">Gilbran</div>
-  <div class="menu-toggle" id="menu-toggle">&#9776;</div>
-  <ul id="nav-links">
+  <div class="menu-toggle">&#9776;</div>
+  <ul>
     <li><a href="index.html">Tentang Saya</a></li>
     <li><a href="skills.html">Skills</a></li>
     <li><a href="pengalaman.html">Pengalaman</a></li>
     <li><a href="kontak.html">Kontak</a></li>
   </ul>
 </nav>
+
 
   <!-- Experience Section -->
   <section class="experience-section">
@@ -308,11 +313,11 @@ nav ul li a:hover {
   </section>
 
   <script>
-  const toggle = document.getElementById("menu-toggle");
-  const navLinks = document.getElementById("nav-links");
+   const menuToggle = document.querySelector(".menu-toggle");
+  const navMenu = document.querySelector("nav ul");
 
-  toggle.addEventListener("click", () => {
-    navLinks.classList.toggle("show");
+  menuToggle.addEventListener("click", () => {
+    navMenu.classList.toggle("show");
   });
     
     // Animasi scroll
@@ -342,4 +347,5 @@ particlesJS("particles-js", {
 
 </body>
 </html>
+
 
