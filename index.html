@@ -1,0 +1,345 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Tentang Saya - Gilbran</title>
+  <style>
+    /* Reset */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: "Poppins", sans-serif;
+    }
+
+    body {
+      background: linear-gradient(-45deg, #1a1a1a, #2b2b2b, #3d0c0c, #660000);
+      background-size: 400% 400%;
+      animation: gradientBG 15s ease infinite;
+      color: white;
+    }
+
+    @keyframes gradientBG {
+      0% { background-position: 0% 50%; }
+      50% { background-position: 100% 50%; }
+      100% { background-position: 0% 50%; }
+    }
+
+    /* Navbar */
+    nav {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      background: rgba(20, 20, 20, 0.85);
+      backdrop-filter: blur(6px);
+      padding: 15px 20px;
+      z-index: 1000;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+    nav ul {
+      display: flex;
+      gap: 20px;
+      list-style: none;
+    }
+    nav ul li a {
+      display: inline-block;
+      text-decoration: none;
+      color: white;
+      font-size: 16px;
+      padding: 8px 16px;
+      border-radius: 25px;
+      border: 1px solid transparent;
+      transition: 0.3s;
+    }
+    nav ul li a:hover {
+      background: #ff4d4d;
+      color: #fff;
+      border-color: #ff4d4d;
+      box-shadow: 0 0 10px rgba(255, 77, 77, 0.6);
+    }
+
+    /* Tombol hamburger */
+    .menu-toggle {
+      display: none;
+      font-size: 28px;
+      cursor: pointer;
+      color: white;
+      position: absolute;
+      left: 20px;
+    }
+
+    /* Section Tentang Saya */
+    section {
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 120px 10% 60px;
+      flex-direction: column;
+    }
+    .container {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 50px;
+      align-items: center;
+    }
+
+    /* Foto */
+    .photo {
+      width: 250px;
+      height: 250px;
+      border-radius: 20px;
+      background: #222;
+      box-shadow: 0 0 20px rgba(255, 77, 77, 0.3);
+      overflow: hidden;
+      margin: 0 auto;
+    }
+    .photo img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      border-radius: 20px;
+    }
+
+    /* Nama Animasi */
+    .name {
+      font-size: 2.5rem;
+      font-weight: bold;
+      color: #fff;
+      text-shadow: 0 0 10px #ff4d4d, 0 0 20px #ff1a1a;
+      white-space: nowrap;
+      overflow: hidden;
+      border-right: 3px solid #ff4d4d;
+      width: 0;
+      animation: typing 3.5s steps(30, end) forwards, blink 0.7s infinite;
+    }
+    @keyframes typing {
+      from { width: 0 }
+      to { width: 100% }
+    }
+    @keyframes blink {
+      50% { border-color: transparent }
+    }
+
+    /* Role Animasi */
+    .role {
+      margin-top: 10px;
+      font-size: 1.5rem;
+      color: #ff4d4d;
+      font-weight: 500;
+      height: 30px;
+    }
+    .fade {
+      animation: fadeInOut 4s infinite;
+    }
+    @keyframes fadeInOut {
+      0% { opacity: 0; }
+      10% { opacity: 1; }
+      40% { opacity: 1; }
+      50% { opacity: 0; }
+      100% { opacity: 0; }
+    }
+
+    /* Deskripsi */
+    .desc {
+      margin-top: 20px;
+      font-size: 1.1rem;
+      line-height: 1.7;
+      color: #bbb;
+      max-width: 500px;
+    }
+
+    /* QR Card */
+    .qr-card {
+      margin-top: 40px;
+      width: 200px;
+      padding: 15px;
+      background: #1a1a1a;
+      border-radius: 15px;
+      box-shadow: 0 10px 25px rgba(255, 77, 77, 0.5);
+      text-align: center;
+      animation: swing 3s ease-in-out infinite;
+    }
+    .qr-card img {
+      width: 100%;
+      border-radius: 10px;
+    }
+    @keyframes swing {
+      0% { transform: rotate(0deg); }
+      25% { transform: rotate(3deg); }
+      50% { transform: rotate(0deg); }
+      75% { transform: rotate(-3deg); }
+      100% { transform: rotate(0deg); }
+    }
+
+  @media (max-width: 992px) {
+  .menu-toggle {
+    display: block;
+    font-size: 28px;
+    cursor: pointer;
+    color: white;
+    position: absolute;
+    left: 20px;
+    z-index: 2000;
+  }
+
+  nav {
+    justify-content: flex-end;
+  }
+  nav ul {
+    display: none;
+    flex-direction: column;
+    gap: 15px;
+    background: rgba(20, 20, 20, 0.95);
+    position: absolute;
+    top: 60px;
+    left: 0;
+    width: 100%;
+    padding: 20px 0;
+  }
+  nav ul.show {
+    display: flex !important;
+  }
+
+  .photo { width: 150px; height: 150px; }
+  .name { font-size: 1.5rem; }
+  .desc { font-size: 1rem; line-height: 1.5; }
+  }
+
+    /* HP */
+    @media (max-width: 576px) {
+      nav { justify-content: flex-end; }
+      .menu-toggle { display: block; }
+      nav ul {
+        flex-direction: column;
+        gap: 15px;
+        background: rgba(20, 20, 20, 0.95);
+        position: absolute;
+        top: 60px;
+        left: 0;
+        width: 100%;
+        display: none;
+        padding: 20px 0;
+      }
+      nav ul.show { display: flex; }
+      .photo { width: 150px; height: 150px; }
+      .name { font-size: 1.5rem; }
+      .desc { font-size: 1rem; line-height: 1.5; }
+    }
+
+    #particles-js {
+      position: fixed;
+      width: 100%;
+      height: 100%;
+      background: #0d0d0d;
+      top: 0;
+      left: 0;
+      z-index: -1;
+    }
+        .cv-btn {
+      display: inline-block;
+      margin-top: 15px;
+      padding: 10px 20px;
+      background: #ff4d4d;
+      color: white;
+      font-size: 1rem;
+      font-weight: bold;
+      border-radius: 30px;
+      text-decoration: none;
+      transition: 0.3s;
+      box-shadow: 0 0 15px rgba(255, 77, 77, 0.6);
+    }
+    .cv-btn:hover {
+      background: #ff1a1a;
+      box-shadow: 0 0 25px rgba(255, 26, 26, 0.9);
+      transform: translateY(-3px);
+    }
+
+  </style>
+</head>
+<body>
+    <div id="particles-js"></div>
+
+  <!-- Navbar -->
+  <nav>
+    <div class="menu-toggle">&#9776;</div>
+    <ul>
+      <li><a href="index.html">Tentang Saya</a></li>
+      <li><a href="skills.html">Skills</a></li>
+      <li><a href="pengalaman.html">Pengalaman</a></li>
+      <li><a href="kontak.html">Kontak</a></li>
+    </ul>
+  </nav>
+
+  <!-- Tentang Saya -->
+  <section id="tentang">
+    <div class="container">
+      <!-- Foto -->
+      <div class="photo">
+        <img src="itb.jpg" alt="Foto Gilbran">
+      </div>
+
+      <!-- Teks -->
+      <div>
+        <h1 class="name">Gilbran Fahmi Almufaky</h1>
+        <h2 class="role" id="role"></h2>
+        <p class="desc">
+          Halo, saya seorang siswa SMKS Mahaputra Cerdas Utana dengan jurusan PPLG (Pengembangan Perangkat Lunak dan Gim) yang memiliki minat mendalam pada dunia teknologi khususnya pada bidang
+          pengembangan web, dan aplikasi. Saya terus
+          belajar hal baru, serta berkomitmen untuk menciptakan karya kreatif dan bermanfaat.
+        </p>
+
+        <!-- QR Code Card -->
+        <div class="qr-card">
+          <img src="qr.png" alt="QR Code Portfolio">
+          <p style="margin-top:10px; color:#ff4d4d;">Scan</p>
+          <a href="cv.pdf" download class="cv-btn">Download CV</a>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+<script src="https://cdn.jsdelivr.net/npm/particles.js"></script>
+<script>
+particlesJS("particles-js", {
+  particles: {
+    number: { value: 80 },
+    size: { value: 3 },
+    move: { speed: 2 }
+  }
+});
+</script>
+
+  <script>
+    // Role berganti-ganti
+    const roles = ["Web Developer", "UI/UX Designer", "Software Engineer"];
+    let index = 0;
+    const roleElement = document.getElementById("role");
+
+    function changeRole() {
+      roleElement.textContent = roles[index];
+      roleElement.classList.remove("fade");
+      void roleElement.offsetWidth;
+      roleElement.classList.add("fade");
+      index = (index + 1) % roles.length;
+    }
+
+    changeRole();
+    setInterval(changeRole, 4000);
+
+    // Toggle menu
+    const menuToggle = document.querySelector(".menu-toggle");
+    const navMenu = document.querySelector("nav ul");
+
+    menuToggle.addEventListener("click", () => {
+      navMenu.classList.toggle("show");
+    });
+  </script>
+</body>
+</html>
